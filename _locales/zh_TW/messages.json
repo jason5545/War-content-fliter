@@ -1,0 +1,35 @@
+{
+  "extension_name": {
+    "message": "戰爭內容過濾器"
+  },
+  "extension_description": {
+    "message": "從網路上過濾戰爭相關內容。"
+  },
+  "popup_title": {
+    "message": "戰爭內容過濾器"
+  },
+  "popup_description": {
+    "message": "從網路上封鎖戰爭相關內容。"
+  },
+  "popup_switch_label": {
+    "message": "啟用過濾"
+  },
+  "whitelist_title": {
+    "message": "將此網域新增至過濾白名單"
+  },
+  "whitelist_url_placeholder": {
+    "message": "輸入網站網址"
+  },
+  "whitelist_add_btn": {
+    "message": "新增至白名單"
+  },
+  "blocked_page_title": {
+    "message": "已封鎖頁面"
+  },
+  "blocked_page_heading": {
+    "message": "此頁面已被封鎖。"
+  },
+  "blocked_page_button": {
+    "message": "暫時解除封鎖此頁面"
+  }
+}
