@@ -1,0 +1,29 @@
+{
+  "popup_title": {
+    "message": "War Content Filter"
+  },
+  "popup_description": {
+    "message": "Block war-related content from being displayed in your browser."
+  },
+  "popup_switch_label": {
+    "message": "Enable content filtering"
+  },
+  "whitelist_title": {
+    "message": "Whitelist"
+  },
+  "whitelist_url_placeholder": {
+    "message": "Enter website URL"
+  },
+  "whitelist_add_btn": {
+    "message": "Add to Whitelist"
+  },
+  "blocked_page_title": {
+    "message": "Blocked Page"
+  },
+  "blocked_page_heading": {
+    "message": "This page has been blocked."
+  },
+  "blocked_page_button": {
+    "message": "Temporarily unblock this page"
+  }
+}
