@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": ".*",
+      "resourceTypes": [
+        "image",
+        "stylesheet",
+        "font",
+        "media",
+        "websocket",
+        "other"
+      ],
+      "domains": [
+        "*"
+      ],
+      "urlMatches": "war|battle|combat|conflict|military|战争|戰爭|战斗|戰鬥|战斗中|戰鬥中|冲突|衝突|军事|軍事|習近平|习近平|Xi Jinping|俄羅斯|俄罗斯|Russia|烏克蘭|乌克兰|Ukraine|台海"
+    }
+  }
+]

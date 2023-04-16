@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>War Content Filter</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1 id="popup_title"></h1>
+    <p id="popup_description"></p>
+    <div class="switch">
+      <input type="checkbox" id="filtering-enabled" checked>
+      <label for="filtering-enabled" id="popup_switch_label"></label>
+    </div>
+    <div class="whitelist">
+      <h3 id="whitelist_title"></h3>
+      <input type="text" id="whitelist_url" placeholder="Enter website URL" />
+      <button id="whitelist_add_btn">Add to Whitelist</button>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
