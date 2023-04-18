@@ -7,7 +7,7 @@ A Google Chrome extension that helps users block news articles and websites rela
 - Blocks web pages with keywords related to war, conflict, and military
 - Allows users to add websites to a whitelist to bypass the blocking
 - Temporarily unblock a page if it's mistakenly blocked
-- ~~User can remove a site from the whitelist~~
+- User can remove a site from the whitelist
 - Compatible with different locales
 
 ## Installation
