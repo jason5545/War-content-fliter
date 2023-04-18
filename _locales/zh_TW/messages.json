@@ -31,5 +31,14 @@
   },
   "blocked_page_button": {
     "message": "暫時解除封鎖此頁面"
+  },
+  "whitelist_remove_btn": {
+    "message": "移除"
+  },
+  "website_label": {
+    "message": "網站"
+  },
+  "action_label": {
+    "message": "操作"
   }
 }
