@@ -6,6 +6,37 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('whitelist_title').textContent = chrome.i18n.getMessage('whitelist_title');
   document.getElementById('whitelist_url').placeholder = chrome.i18n.getMessage('whitelist_url_placeholder');
   document.getElementById('whitelist_add_btn').textContent = chrome.i18n.getMessage('whitelist_add_btn');
+  document.getElementById('website_label').textContent = chrome.i18n.getMessage('website_label');
+  document.getElementById('action_label').textContent = chrome.i18n.getMessage('action_label');
+
+// Function to update the table with the current whitelist
+  function updateWhitelistTable(whitelist) {
+    const tableBody = document.querySelector('table tbody');
+    tableBody.innerHTML = '';
+    whitelist.forEach((url) => {
+      const row = document.createElement('tr');
+      const urlCell = document.createElement('td');
+      urlCell.textContent = url;
+      const actionCell = document.createElement('td');
+      const removeButton = document.createElement('button');
+      removeButton.textContent = chrome.i18n.getMessage('whitelist_remove_btn');
+      removeButton.addEventListener('click', () => {
+        // Remove the URL from the whitelist and update the table
+        const updatedWhitelist = whitelist.filter((whitelistedUrl) => whitelistedUrl !== url);
+        chrome.storage.sync.set({ whitelist: updatedWhitelist });
+        updateWhitelistTable(updatedWhitelist);
+      });
+      actionCell.appendChild(removeButton);
+      row.appendChild(urlCell);
+      row.appendChild(actionCell);
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Load the current whitelist and update the table
+  chrome.storage.sync.get('whitelist', ({ whitelist = [] }) => {
+    updateWhitelistTable(whitelist);
+  });
 
   // Get the filtering-enabled checkbox element
   const checkbox = document.getElementById('filtering-enabled');
@@ -38,8 +69,58 @@ document.addEventListener('DOMContentLoaded', function () {
           chrome.storage.sync.set({ whitelist });
           urlInput.value = '';
           // Display a success message or update the UI to indicate the website has been added to the whitelist.
+		  updateWhitelistTable(whitelist);
         }
       });
     }
   });
+
+  // Load the current whitelist from storage and populate the table
+  chrome.storage.sync.get('whitelist', ({ whitelist = [] }) => {
+    populateWhitelistTable(whitelist);
+  });
 });
+
+function populateWhitelistTable(whitelist) {
+  const tableBody = document.getElementById("whitelist-table").getElementsByTagName("tbody")[0];
+  tableBody.innerHTML = "";
+
+  whitelist.forEach((site) => {
+    const row = tableBody.insertRow();
+    const siteCell = row.insertCell(0);
+    const actionsCell = row.insertCell(1);
+
+    siteCell.innerText = site;
+
+    const removeButton = document.createElement("button");
+    removeButton.innerText = "Remove";
+    removeButton.addEventListener("click", () => removeFromWhitelist(site));
+    actionsCell.appendChild(removeButton);
+  });
+}
+
+function removeFromWhitelist(siteToRemove) {
+  chrome.storage.sync.get("whitelist", ({ whitelist = [] }) => {
+    const updatedWhitelist = whitelist.filter((site) => site !== siteToRemove);
+    chrome.storage.sync.set({ whitelist: updatedWhitelist }, () => {
+      populateWhitelistTable(updatedWhitelist);
+    });
+  });
+}
+function populateWhitelistTable(whitelist) {
+  const tableBody = document.getElementById("whitelist-table").getElementsByTagName("tbody")[0];
+  tableBody.innerHTML = "";
+
+  whitelist.forEach((site) => {
+    const row = tableBody.insertRow();
+    const siteCell = row.insertCell(0);
+    const actionsCell = row.insertCell(1);
+
+    siteCell.innerText = site;
+
+    const removeButton = document.createElement("button");
+    removeButton.innerText = chrome.i18n.getMessage('whitelist_remove_btn'); // Localized removal button text
+    removeButton.addEventListener("click", () => removeFromWhitelist(site));
+    actionsCell.appendChild(removeButton);
+  });
+}
