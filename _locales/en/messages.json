@@ -25,5 +25,14 @@
   },
   "blocked_page_button": {
     "message": "Temporarily unblock this page"
+  },
+  "whitelist_remove_btn": {
+    "message": "Remove"
+  },
+  "website_label": {
+    "message": "Website"
+  },
+  "action_label": {
+    "message": "Action"
   }
 }
