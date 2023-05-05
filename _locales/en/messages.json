@@ -2,6 +2,9 @@
   "extension_name": {
     "message": "War Content Filter"
   },
+    "extension_description": {
+      "message": "Block war-related content from being displayed in your browser."
+    },
   "popup_title": {
     "message": "War Content Filter"
   },
